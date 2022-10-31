@@ -31,6 +31,7 @@ while True:
         break
     sentence = tokenize(sentence)
     x = bag_of_word(sentence, all_words)
+    print(x.shape)
     x = x.reshape(-1, x.shape[0])
     x = torch.tensor(x, dtype=torch.float32)
     output = model(x)
