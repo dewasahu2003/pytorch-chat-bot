@@ -1,5 +1,6 @@
 import json
 import random
+from black import out
 import torch
 from model import Bot_Model
 from nltk_utils import bag_of_word, tokenize
@@ -39,8 +40,9 @@ while True:
     tag = tags[predicted.item()]
 
     probabilities = torch.softmax(output, dim=1)  # applying softmax here bcz
-    print(probabilities)
+
     probability = probabilities[0][predicted.item()]
+    # same thing but getting things in terms of probability
 
     if probability > 0.75:
         for intent in intents["intents"]:
