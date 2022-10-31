@@ -1,6 +1,5 @@
 import json
 import random
-from black import out
 import torch
 from model import Bot_Model
 from nltk_utils import bag_of_word, tokenize
@@ -21,7 +20,7 @@ num_classes = data["num_classes"]
 
 
 model = Bot_Model(input_size, hidden_size, num_classes)
-model.load_state_dict(model_state)
+model.load_state_dict(model_state)  # make the model learn from past result
 model.eval()
 
 
